@@ -287,7 +287,7 @@ function toNumber(value, def) {
  *   0  => 0
  */
 function getCube(num) {
-  const cube = num * num * num;
+  const cube = num ** 3;
 
   return cube;
 }
@@ -748,7 +748,11 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  return Math.floor((number + 1) / 2);
+  let num = number;
+  if (number < 0) {
+    num = number * -1;
+  }
+  return Math.floor((num + 1) / 2);
 }
 
 module.exports = {
