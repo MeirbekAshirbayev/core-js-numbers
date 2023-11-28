@@ -60,9 +60,11 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  const average = (value1 + value2) / 2;
+  if (!Number.isFinite(value1) || !Number.isFinite(value2)) {
+    throw new Error('Both input values must be finite numbers');
+  }
 
-  return average;
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -533,7 +535,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return typeof number === 'number' && !Number.isNaN(number);
+  return typeof number === 'number' && Number.isFinite(number);
 }
 
 /**
