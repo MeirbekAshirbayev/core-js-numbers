@@ -673,7 +673,9 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
-  return x1 + x2 + x3;
+  const sum = x1 + x2 + x3;
+  // Round the sum to 1 decimal place
+  return Number(sum.toFixed(1));
 }
 
 /**
@@ -729,7 +731,7 @@ function getHypotenuse(a, b) {
     throw new Error('Side lengths must be positive numbers');
   }
 
-  return Math.sqrt(a * a + b * b);
+  return Math.hypot(a, b);
 }
 
 /**
@@ -746,17 +748,7 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  if (number < 0) {
-    throw new Error('Number must be non-negative');
-  }
-
-  let count = Math.floor(number / 2) + 1;
-
-  if (number % 2 !== 0) {
-    count += 1;
-  }
-
-  return count;
+  return Math.floor((number + 1) / 2);
 }
 
 module.exports = {
